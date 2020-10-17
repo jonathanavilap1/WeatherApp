@@ -7,7 +7,6 @@ phases:
       - npm install -g serverless
   build:
     commands:
-      - serverless login
       - serverless deploy --stage cicd | tee deploy.out
   post_build:
     commands:
