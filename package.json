@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "deploy:dev": "serverless deploy --verbose --stage dev",
+    "sls": "serverless offline start --port 5000",
+    "dev": "NODE_ENV=development serverless offline",
+    "test": "serverless invoke test"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "serverless-mocha-plugin": "^1.12.0"
+  }
+}

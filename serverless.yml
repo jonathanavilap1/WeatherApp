@@ -1,0 +1,27 @@
+
+
+service: weather-app
+app: weather-app
+org: choowder1
+
+frameworkVersion: '2'
+
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  profile: Serverless-admin
+  region: us-east-1
+  environment: ${file(./env.yml):${opt:stage, 'dev'}}
+
+functions:
+  Weather:
+    handler: Service/function.getWeather
+    events:
+      - http:
+          path: weather
+          method: get
+          cors: true
+
+plugins:
+  - serverless-mocha-plugin
