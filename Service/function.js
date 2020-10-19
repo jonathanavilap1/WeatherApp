@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-
+//first test for lambda function
 module.exports.getWeather = (event, context, callback) => {
 
     const endpoint = `http://api.openweathermap.org/data/2.5/weather?q=Zapopan,JA,MX&appid=${process.env.APPID}&units=metric`;

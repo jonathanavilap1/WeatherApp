@@ -2,15 +2,15 @@ version: 0.1
 phases:
   install:
     commands:
-      - Echo installing npm....
+      - echo installing npm....
       - npm install
-      - Echo installing mocha....
+      - echo installing mocha....
       - npm install -g mocha
-      - Echo installing Serverless....
+      - echo installing Serverless....
       - npm install -g serverless
   build:
     commands:
-      - Echo deploy stardted on `date`
+      - echo deploy stardted on `date`
       - serverless deploy --stage cicd | tee deploy.out
   post_build:
     commands:
