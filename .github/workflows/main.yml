@@ -1,0 +1,19 @@
+name: Weather
+on:
+  pull_request:
+    branches: [master]
+jobs:
+  tests:
+    name: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - name: Install Serverless Framework
+        run: npm install | npm install -g mocha serverless
+      - name: Build project
+        run: echo SERVERLESS_ACCESS_KEY=AKFCqsVPp9E6OxggtQ4iJVjwFaKe66HPu8mr1s0fAZIuW | serverless deploy --stage cicd | tee deploy.out
+      - name: Run test suite
+        run: npm run test
